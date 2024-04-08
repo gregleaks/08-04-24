@@ -1,17 +1,17 @@
-<?php 
-require_once('./conexao.php'); //chamada de outro arquivo
+<?php
+require_once("./conexao.php");
+
 $txtNomeRisco = $_POST['txtNomeRisco'];
 $txtDescricaoRisco = $_POST['txtDescricaoRisco'];
 
-
-$str_sql_cadastrar_Risco = "inser into `Riscos` (`nome`,`descricao`) values ('$txtNomeRisco', '$txtDescricaoRisco');";
+$str_sql_cadastrar_Risco= "insert into `riscos` (`nome`,`descricao`) values ('$txtNomeRisco','$txtDescricaoRisco'); ";
 
 try{
-    $cadastrar_Risco= = mysql_query($conexao, $str_sql_cadastrar_Risco);
+    $cadastrar_Risco = mysqli_query($conexao, $str_sql_cadastrar_Risco);
     $ultimo_id = $conexao->insert_id;
-    $_SESSION['idRisco'] = $ultimo_id;
-    die('idRisco: ' . $_SESSION['idRisco']);
+    $_SESSION['idRisco']= $ultimo_id;
+    die('idRisco' . $_SESSION['idRisco']);
 } catch (Exception) {
-    die('Não foi possivel cadastrar o Risco str sql: ' . $str_sql_cadastrar_Risco);
+    die('Não foi possível cadastrar o benefício str sql: ' . $str_sql_cadastrar_Risco);
 }
 ?>

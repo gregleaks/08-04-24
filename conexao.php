@@ -15,17 +15,17 @@ if ($_SERVER['SERVER_NAME'] != 'localhost') {
     $host = 'otherhost.mysql.com';
 }
 
-$db = 'conexao';
+$db = 'canvas';
 $usuario = 'root';
 $senha = '';
 
-$conexao = mysqli_connect($host,$usuario,$senha);
-
 try{
     $conexao = mysqli_connect($host,$usuario,$senha);
-    echo'Conexao bem sucedida.';
-}catch(Exception $e){
-    die('Nao foi possivel conectar ao banco de dados. Erro: ' . $e);
+    echo 'Conexão bem sucedida';
+} catch(Exception $e){
+    die('Não foi possivel conectar ao banco de dados. Erro: '. $e);
 }
+$conexao = mysqli_connect($host,$usuario,$senha);
+
 mysqli_select_db($conexao,$db);
 ?>

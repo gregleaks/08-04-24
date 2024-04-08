@@ -1,17 +1,17 @@
-<?php 
-require_once('./conexao.php'); //chamada de outro arquivo
-$txtNomeLinhaDoTempo = $_POST['txtNomeLinhaDoTempo'];
-$txtDescricaoLinhaDoTempo = $_POST['txtDescricaoLinhaDoTempo'];
+<?php
+require_once("./conexao.php");
 
+$txtNomeLinhadoTempo = $_POST['txtNomeLinhadoTempo'];
+$txtDescricaoLinhadoTempo = $_POST['txtDescricaoLinhadoTempo'];
 
-$str_sql_cadastrar_LinhaDoTempo = "inser into `LinhaDoTempos` (`nome`,`descricao`) values ('$txtNomeLinhaDoTempo', '$txtDescricaoLinhaDoTempo');";
+$str_sql_cadastrar_LinhadoTempo= "insert into `linhas_do_tempo` (`nome`,`descricao`) values ('$txtNomeLinhadoTempo','$txtDescricaoLinhadoTempo'); ";
 
 try{
-    $cadastrar_LinhaDoTempo= = mysql_query($conexao, $str_sql_cadastrar_LinhaDoTempo);
+    $cadastrar_LinhadoTempo = mysqli_query($conexao, $str_sql_cadastrar_LinhadoTempo);
     $ultimo_id = $conexao->insert_id;
-    $_SESSION['idLinhaDoTempo'] = $ultimo_id;
-    die('idLinhaDoTempo: ' . $_SESSION['idLinhaDoTempo']);
+    $_SESSION['idLinhadoTempo']= $ultimo_id;
+    die('idLinhadoTempo' . $_SESSION['idLinhadoTempo']);
 } catch (Exception) {
-    die('Não foi possivel cadastrar o LinhaDoTempo str sql: ' . $str_sql_cadastrar_LinhaDoTempo);
+    die('Não foi possível cadastrar o benefício str sql: ' . $str_sql_cadastrar_LinhadoTempo);
 }
 ?>

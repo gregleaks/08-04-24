@@ -1,17 +1,17 @@
-<?php 
-require_once('./conexao.php'); //chamada de outro arquivo
-$txtNomeGrupoDeEntrega = $_POST['txtNomeGrupoDeEntrega'];
-$txtDescricaoGrupoDeEntrega = $_POST['txtDescricaoGrupoDeEntrega'];
+<?php
+require_once("./conexao.php");
 
+$txtNomeGrupodeEntrega = $_POST['txtNomeGrupodeEntrega'];
+$txtDescricaoGrupodeEntrega = $_POST['txtDescricaoGrupodeEntrega'];
 
-$str_sql_cadastrar_GrupoDeEntrega = "inser into `GrupoDeEntregas` (`nome`,`descricao`) values ('$txtNomeGrupoDeEntrega', '$txtDescricaoGrupoDeEntrega');";
+$str_sql_cadastrar_GrupodeEntrega= "insert into `grupos_de_entregas` (`nome`,`descricao`) values ('$txtNomeGrupodeEntrega','$txtDescricaoGrupodeEntrega'); ";
 
 try{
-    $cadastrar_GrupoDeEntrega= = mysql_query($conexao, $str_sql_cadastrar_GrupoDeEntrega);
+    $cadastrar_GrupodeEntrega = mysqli_query($conexao, $str_sql_cadastrar_GrupodeEntrega);
     $ultimo_id = $conexao->insert_id;
-    $_SESSION['idGrupoDeEntrega'] = $ultimo_id;
-    die('idGrupoDeEntrega: ' . $_SESSION['idGrupoDeEntrega']);
+    $_SESSION['idGrupodeEntrega']= $ultimo_id;
+    die('idGrupodeEntrega' . $_SESSION['idGrupodeEntrega']);
 } catch (Exception) {
-    die('Não foi possivel cadastrar o GrupoDeEntrega str sql: ' . $str_sql_cadastrar_GrupoDeEntrega);
+    die('Não foi possível cadastrar o benefício str sql: ' . $str_sql_cadastrar_GrupodeEntrega);
 }
 ?>
